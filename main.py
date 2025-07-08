@@ -3,6 +3,7 @@ def parse_input(user_input):
     cmd = cmd.strip().lower()
     return cmd, *args
 
+
 def add_contact(args, contacts):
     if len(args) != 2:
         return "Please enter name and phone number"
@@ -10,15 +11,17 @@ def add_contact(args, contacts):
     contacts[name] = phone
     return "Contact added"
 
+
 def show_phone(args, contacts):
     if len(args) != 1:
-        print("Please enter contact name")
+        return "Please enter contact name"
     name = args[0]
     if name in contacts:
         return contacts[name]
     else:
         return "Contact not found"
-    
+
+
 def change_contact(args, contacts):
     if len(args) != 2:
         return "Please enter name and new phone number"
@@ -28,7 +31,8 @@ def change_contact(args, contacts):
         return "Contact updated"
     else:
         return "Contact not found"
-    
+
+
 def show_all(args, contacts):
     if not contacts:
         return "Contacts not found"
@@ -36,11 +40,12 @@ def show_all(args, contacts):
     for name, phone in contacts.items():
         result += f'{name}: {phone}\n'
     return result.strip()
-    
+
+
 def main():
     contacts = {}
     print("Welcome to the assistant bot!")
-    
+
     while True:
         user_input = input("Enter a command: ")
         command, *args = parse_input(user_input)
@@ -67,12 +72,6 @@ def main():
         else:
             print("Invalid command.")
 
+
 if __name__ == '__main__':
-    main()          
-
-
-    
-
-
-
-    
+    main()
