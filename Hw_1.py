@@ -18,12 +18,12 @@ def total_salary(path):
                     salaries.append(float(salary))
                 except ValueError:
                     continue
-                try:
-                    total = sum(salaries)
-                    average = float(total / len(salaries))
-                    return total, average
-                except ZeroDivisionError:
-                    return 0.0, 0.0
+        try:
+            total = sum(salaries)
+            average = float(total / len(salaries))
+            return total, average
+        except ZeroDivisionError:
+            return 0.0, 0.0
 
     except Exception as e:
         print(f'{e} with file')
